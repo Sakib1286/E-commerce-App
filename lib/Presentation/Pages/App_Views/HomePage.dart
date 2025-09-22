@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 
+import '../../../data/dart/product_list.dart';
 import '../../CustomWidgets/CustomTextField.dart';
 import '../../CustomWidgets/Custom_Cir_Container.dart';
+import '../../CustomWidgets/Product_card.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    double ScreenHeight = MediaQuery.of(context).size.height;
+    double ScreenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(160),
@@ -57,17 +61,69 @@ class Homepage extends StatelessWidget {
         )
 
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Column(
-          children: [
-
-          Row(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
             children: [
-              CustomCirContainer(imagePath: 'assets/images/mac.jpg',size: 50, text: 'Accessories',onTap: (){print("Sucessssssssssssssssssssssssssssssssssss");},)
+
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                        CustomCirContainer(imagePath: 'assets/images/mac.jpg',size: 60, text: 'Tech',onTap: (){},),
+                  SizedBox(width: ScreenWidth*.025,),
+                  CustomCirContainer(imagePath: 'assets/images/coffee.jpg',size: 60, text: 'Grocery',onTap: (){},),
+                  SizedBox(width: ScreenWidth*.025,),
+                  CustomCirContainer(imagePath: 'assets/images/fasion.jpg',size: 60, text: 'Fasion',onTap: (){},),
+                  SizedBox(width: ScreenWidth*.025,),
+                  CustomCirContainer(imagePath: 'assets/images/furniture.jpg',size: 60, text: 'Furniture',onTap: (){},),
+                  SizedBox(width: ScreenWidth*.025,),
+                  CustomCirContainer(imagePath: 'assets/images/cos.jpg',size: 60, text: 'Cosmetics',onTap: (){},),
+                  SizedBox(width: ScreenWidth*.025,),
+                  CustomCirContainer(imagePath: 'assets/images/fruits.jpg',size: 60, text: 'Fruits',onTap: (){},),
+                  SizedBox(width: ScreenWidth*.025,),
+                  CustomCirContainer(imagePath: 'assets/images/travel.jpg',size: 60, text: 'Travel',onTap: (){},),
+              
+                ],
+              ),
+            ),
+              SizedBox(height: ScreenHeight*.03,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Populer Item",style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
+                  TextButton(onPressed: (){}, child: Text("View All",style: TextStyle(color: Colors.grey,fontSize: 14,fontWeight: FontWeight.bold))),
+                ],
+              ),
+              Column(
+                children: [
+                  GridView.builder(
+                    physics: const NeverScrollableScrollPhysics(), // disable GridView scrolling
+                    shrinkWrap: true, // let GridView size itself based on content
+                    itemCount: products.length,
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 12,
+                      mainAxisSpacing: 12,
+                      childAspectRatio: 0.7,
+                    ),
+                    itemBuilder: (context, index) {
+                      final product = products[index];
+                      return ProductCard(
+                        name: product.name,
+                        category: product.category,
+                        image: product.image,
+                        description: product.description,
+                        price: product.price,
+                      );
+                    },
+                  ),
+                ],
+              )
+
             ],
-          )
-          ],
+          ),
         ),
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quick_shopping/Navigation_manu.dart';
 import 'package:quick_shopping/Presentation/Onboarding_page.dart';
 import 'package:quick_shopping/Presentation/Pages/Authantication/LoginPage.dart';
 import 'package:quick_shopping/Presentation/Pages/Authantication/RegisterPage.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
 
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Homepage(),
+      home: NavigationMenu(),
     );
   }
 }
