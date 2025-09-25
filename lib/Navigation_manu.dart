@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quick_shopping/Presentation/Pages/App_Views/FavouritePage.dart';
 import 'package:quick_shopping/Presentation/Pages/App_Views/HomePage.dart';
 
 
@@ -9,7 +10,7 @@ class NavigationMenu extends StatelessWidget {
 
   final List<Widget> screens = const [
     Homepage(),
-      ColoredBox(color: Colors.purple),
+      FavouritePage(),
   ColoredBox(color: Colors.orange),
   ColoredBox(color: Colors.blue),
   ];
@@ -34,7 +35,7 @@ class NavigationMenu extends StatelessWidget {
                 NavigationDestination(
                     icon: Icon(Icons.favorite_border_outlined), label: 'Favourite'),
                 NavigationDestination(
-                    icon: Icon(Icons.list_alt_outlined), label: 'Orders'),
+                    icon: Icon(Icons.list_alt_outlined), label: 'Carts'),
                 NavigationDestination(
                     icon: Icon(Icons.person_2_outlined), label: 'Profile'),
               ],

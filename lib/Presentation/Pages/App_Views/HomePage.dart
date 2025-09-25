@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quick_shopping/Presentation/Pages/App_Views/DetailsPage.dart';
 
 import '../../../data/dart/product_list.dart';
 import '../../CustomWidgets/CustomTextField.dart';
@@ -6,12 +7,14 @@ import '../../CustomWidgets/Custom_Cir_Container.dart';
 import '../../CustomWidgets/Product_card.dart';
 
 class Homepage extends StatelessWidget {
+
   const Homepage({super.key});
 
   @override
   Widget build(BuildContext context) {
     double ScreenHeight = MediaQuery.of(context).size.height;
     double ScreenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(160),
@@ -110,13 +113,14 @@ class Homepage extends StatelessWidget {
                     ),
                     itemBuilder: (context, index) {
                       final product = products[index];
-                      return ProductCard(
-                        name: product.name,
-                        category: product.category,
-                        image: product.image,
-                        description: product.description,
-                        price: product.price,
-                      );
+                      return ProductCard(product_: products[index], onTab:  () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Detailspage(product: products[index]),
+                          ),
+                        );
+                      },);
                     },
                   ),
                 ],
