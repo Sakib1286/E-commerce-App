@@ -192,7 +192,7 @@ class _DetailspageState extends State<Detailspage> {
       bottomNavigationBar: Padding(padding: EdgeInsets.all(10),
       child: CustomButton(onTap: (){
 
-          // Create a new product copy with updated quantity
+
           final updatedProduct = Product(
             id: widget.product.id,
             name: widget.product.name,
@@ -207,7 +207,7 @@ class _DetailspageState extends State<Detailspage> {
           // Add to cart
           context.read<CartCubit>().addToCart(updatedProduct);
 
-          // ✅ Feedback
+          //  Feedback
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(

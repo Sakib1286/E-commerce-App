@@ -15,6 +15,7 @@ class FavouritePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.blueGrey,
         title: const Text("Favourites",style: TextStyle(color: Colors.black,fontWeight:FontWeight.bold),),
         centerTitle: true,
       leading: IconButton(onPressed: (){

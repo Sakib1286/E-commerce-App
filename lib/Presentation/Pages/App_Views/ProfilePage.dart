@@ -10,7 +10,7 @@ class ProfilePage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Profile"),
+        title: const Text("Your Profile",style: TextStyle(color: Colors.black,fontWeight:FontWeight.bold),),
         backgroundColor: Colors.blueGrey,
         centerTitle: true,
       ),
@@ -45,9 +45,9 @@ class ProfilePage extends StatelessWidget {
                   // Navigate to Edit Profile Page
                 },
                 icon: const Icon(Icons.edit),
-                label: const Text("Edit Profile"),
+                label: const Text("Edit Profile",style: TextStyle(color: Colors.black),),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green,
+                  backgroundColor: Colors.blueGrey,
                   padding: const EdgeInsets.symmetric(
                       horizontal: 24, vertical: 12),
                 ),
@@ -90,14 +90,15 @@ class ProfilePage extends StatelessWidget {
               ),
               const SizedBox(height: 24),
 
-              // Logout Button
+
               ElevatedButton.icon(
                 onPressed: () {
                   // Handle Logout
                 },
                 icon: const Icon(Icons.logout),
-                label: const Text("Logout"),
+                label: const Text("Logout",style: TextStyle(color: Colors.black),),
                 style: ElevatedButton.styleFrom(
+
                   backgroundColor: Colors.redAccent,
                   padding: const EdgeInsets.symmetric(
                       horizontal: 24, vertical: 12),

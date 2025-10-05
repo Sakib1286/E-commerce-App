@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quick_shopping/Presentation/Pages/App_Views/DetailsPage.dart';
+import 'package:quick_shopping/Presentation/Pages/App_Views/ProfilePage.dart';
 
 import '../../../data/dart/product_list.dart';
 import '../../CustomWidgets/CustomTextField.dart';
@@ -21,9 +22,19 @@ class Homepage extends StatelessWidget {
         child: AppBar(
           title: Row(
             children: [
-              const CircleAvatar(
-                radius: 20,
-                backgroundImage: AssetImage("assets/images/naruto.png"),
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ProfilePage(),
+                    ),
+                  );
+                },
+                child: const CircleAvatar(
+                  radius: 20,
+                  backgroundImage: AssetImage("assets/images/naruto.png"),
+                ),
               ),
               const SizedBox(width: 10),
               const Text(

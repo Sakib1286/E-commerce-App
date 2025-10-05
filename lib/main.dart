@@ -2,11 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quick_shopping/Bloc/FavouriteCubit.dart';
 import 'package:quick_shopping/Navigation_manu.dart';
-import 'package:quick_shopping/Presentation/Onboarding_page.dart';
-import 'package:quick_shopping/Presentation/Pages/App_Views/DetailsPage.dart';
-import 'package:quick_shopping/Presentation/Pages/Authantication/LoginPage.dart';
-import 'package:quick_shopping/Presentation/Pages/Authantication/RegisterPage.dart';
-import 'package:quick_shopping/Presentation/Pages/Authantication/Varification_page.dart';
+
 
 import 'Bloc/Add_to_cardBloc.dart';
 import 'Presentation/Pages/App_Views/HomePage.dart';
