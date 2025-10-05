@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quick_shopping/Bloc/Add_to_cardBloc.dart';
 import '../../../data/dart/Model.dart';
 import '../../../data/dart/product_list.dart';
 import '../../CustomWidgets/CustomButton.dart';
@@ -24,7 +26,7 @@ class _DetailspageState extends State<Detailspage> {
 
   void decrement() {
     setState(() {
-      if (quantity > 0) quantity--;
+      if (quantity > 1) quantity--;
     });
   }
 
@@ -188,7 +190,35 @@ class _DetailspageState extends State<Detailspage> {
         ),
       ),
       bottomNavigationBar: Padding(padding: EdgeInsets.all(10),
-      child: CustomButton(onTap: (){}, text: "Add to Card", fontsize: 18, textcolor: Colors.black, bgcolor: Colors.green, btnheight: 50,
+      child: CustomButton(onTap: (){
+
+          // Create a new product copy with updated quantity
+          final updatedProduct = Product(
+            id: widget.product.id,
+            name: widget.product.name,
+            category: widget.product.category,
+            image: widget.product.image,
+            description: widget.product.description,
+            details: widget.product.details,
+            price: widget.product.price,
+            quantity: quantity,
+          );
+
+          // Add to cart
+          context.read<CartCubit>().addToCart(updatedProduct);
+
+          // ✅ Feedback
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                "${widget.product
+                    .name} (x$quantity) added to cart — Total \$${updatedProduct
+                    .totalPrice.toStringAsFixed(2)}",
+              ),
+            ),
+          );
+        }
+      , text: "Add to Card", fontsize: 18, textcolor: Colors.black, bgcolor: Colors.green, btnheight: 50,
       btnwidth: double.infinity,),
       ),
     );

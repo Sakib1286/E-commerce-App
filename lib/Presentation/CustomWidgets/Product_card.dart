@@ -81,7 +81,7 @@ class ProductCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "\$${product_.price}",
+                        "\$ ${product_.price.toStringAsFixed(2)}",
                         style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -89,7 +89,8 @@ class ProductCard extends StatelessWidget {
                         ),
                       ),
 
-                     
+
+
 
                       BlocBuilder<FavouriteCubit, List<Product>>(
 

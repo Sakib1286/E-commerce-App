@@ -8,6 +8,7 @@ import 'package:quick_shopping/Presentation/Pages/Authantication/LoginPage.dart'
 import 'package:quick_shopping/Presentation/Pages/Authantication/RegisterPage.dart';
 import 'package:quick_shopping/Presentation/Pages/Authantication/Varification_page.dart';
 
+import 'Bloc/Add_to_cardBloc.dart';
 import 'Presentation/Pages/App_Views/HomePage.dart';
 
 void main() {
@@ -23,6 +24,8 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => FavouriteCubit()),
+        BlocProvider(create: (_) => CartCubit()),
+
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

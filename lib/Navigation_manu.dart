@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quick_shopping/Presentation/Pages/App_Views/FavouritePage.dart';
 import 'package:quick_shopping/Presentation/Pages/App_Views/HomePage.dart';
+import 'package:quick_shopping/Presentation/Pages/App_Views/cartPage.dart';
+
+import 'Presentation/Pages/App_Views/ProfilePage.dart';
 
 
 
@@ -10,9 +13,9 @@ class NavigationMenu extends StatelessWidget {
 
   final List<Widget> screens = const [
     Homepage(),
-      FavouritePage(),
-  ColoredBox(color: Colors.orange),
-  ColoredBox(color: Colors.blue),
+    FavouritePage(),
+    CartPage(),
+    ProfilePage()
   ];
 
   @override
