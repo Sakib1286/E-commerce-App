@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-  //final TextEditingController controller;
+  final TextEditingController? controller;
   final TextInputType? keyboardType;
   final bool? isObscureText;
   final String? obscuringCharacter;
@@ -11,7 +11,7 @@ class CustomTextField extends StatelessWidget {
 
   CustomTextField(
       {super.key,
-        //required this.controller,
+        required this.controller,
         this.keyboardType,
         this.isObscureText = false,
         this.obscuringCharacter = "*",
@@ -19,14 +19,14 @@ class CustomTextField extends StatelessWidget {
         this.prefixIcon,
         this.suffixIcon});
 
-  // final apicontroller = Get.put(ApiController());
+  //final apicontroller = Get.put(ApiController());
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
     return TextFormField(
-     // controller: controller,
+      controller: controller,
       keyboardType: keyboardType,
       obscureText: isObscureText!,
       obscuringCharacter: obscuringCharacter!,

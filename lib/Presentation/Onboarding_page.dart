@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quick_shopping/Presentation/CustomWidgets/CustomButton.dart';
+import 'package:quick_shopping/Presentation/Pages/Authantication/LoginPage.dart';
+import 'package:quick_shopping/Presentation/Pages/Authantication/RegisterPage.dart';
 
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({super.key});
@@ -35,9 +37,19 @@ class OnboardingPage extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    CustomButton(onTap: (){}, text: "Register", fontsize: 18, textcolor: Colors.black, bgcolor: Colors.grey, btnheight: 50, btnwidth: 180),
+                    CustomButton(onTap: (){ Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Registerpage(),
+                      ),
+                    );}, text: "Register", fontsize: 18, textcolor: Colors.black, bgcolor: Colors.grey, btnheight: 50, btnwidth: 180),
                     SizedBox(width: 15,),
-                    CustomButton(onTap: (){}, text: "Login", fontsize: 18, textcolor: Colors.black, bgcolor: Colors.green, btnheight: 50, btnwidth: 180),
+                    CustomButton(onTap: (){ Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>Loginpage(),
+                      ),
+                    );}, text: "Login", fontsize: 18, textcolor: Colors.black, bgcolor: Colors.green, btnheight: 50, btnwidth: 180),
                   ],
                 ),
                 SizedBox(height: 30,),

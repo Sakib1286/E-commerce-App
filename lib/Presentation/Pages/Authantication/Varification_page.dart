@@ -24,7 +24,7 @@ class VarificationPage extends StatelessWidget {
                 ),
                 Text("Enter  Code",style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.w400)),
                 SizedBox(height: 10,),
-                CustomTextField( hintText: "Digit Code",),
+                CustomTextField( hintText: "Digit Code", controller: null,),
                 SizedBox(height: 20,),
 
                Row(

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../Bloc/Add_to_cardBloc.dart';
 import '../../../Navigation_manu.dart';
 import '../../../data/dart/Model.dart';
+import 'PaymentPage.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
@@ -63,10 +64,7 @@ class CartPage extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    // Proceed to checkout logic
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text("Checkout is not implemented yet.")),
-                    );
+
                   },
                   child: const Text("Checkout"),
                 ),

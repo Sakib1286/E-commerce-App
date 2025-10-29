@@ -30,8 +30,8 @@ class ProductCard extends StatelessWidget {
               borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
               child: Image.asset(
                 product_.image,
-                height: ScreenHeight*0.1,
-                width: double.infinity,
+                height: ScreenHeight*0.09,
+                width: ScreenWidth*double.infinity,
                 fit: BoxFit.cover,
               ),
             ),
@@ -74,7 +74,7 @@ class ProductCard extends StatelessWidget {
                     style: const TextStyle(fontSize: 14, color: Colors.black54),
                   ),
 
-                  SizedBox(height: ScreenHeight*0.006,),
+                  SizedBox(height: ScreenHeight*0.0009,),
 
                   // Price + Button Row
                   Row(
