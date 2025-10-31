@@ -42,14 +42,14 @@ class OnboardingPage extends StatelessWidget {
                       MaterialPageRoute(
                         builder: (context) => Registerpage(),
                       ),
-                    );}, text: "Register", fontsize: 18, textcolor: Colors.black, bgcolor: Colors.grey, btnheight: 50, btnwidth: 180),
-                    SizedBox(width: 15,),
+                    );}, text: "Register", fontsize: 18, textcolor: Colors.black, bgcolor: Colors.grey, btnheight: 50, btnwidth: 160),
+                    SizedBox(width: 13,),
                     CustomButton(onTap: (){ Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) =>Loginpage(),
                       ),
-                    );}, text: "Login", fontsize: 18, textcolor: Colors.black, bgcolor: Colors.green, btnheight: 50, btnwidth: 180),
+                    );}, text: "Login", fontsize: 18, textcolor: Colors.black, bgcolor: Colors.green, btnheight: 50, btnwidth: 160),
                   ],
                 ),
                 SizedBox(height: 30,),

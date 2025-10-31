@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:quick_shopping/Presentation/Pages/App_Views/DetailsPage.dart';
 import 'package:quick_shopping/Presentation/Pages/App_Views/ProfilePage.dart';
@@ -13,6 +15,7 @@ class Homepage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final String uid = FirebaseAuth.instance.currentUser!.uid;
     double ScreenHeight = MediaQuery.of(context).size.height;
     double ScreenWidth = MediaQuery.of(context).size.width;
 
@@ -37,10 +40,40 @@ class Homepage extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 10),
-              const Text(
-                "Naruto Uzumaki",
+
+        //Fetching Name from database
+        StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
+          stream: FirebaseFirestore.instance
+              .collection('users')
+              .doc(uid)
+              .snapshots(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Text(
+                "Loading...",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
+              );
+            }
+
+            if (!snapshot.hasData || !snapshot.data!.exists) {
+              return const Text(
+                "No user found",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              );
+            }
+
+            final userData = snapshot.data!.data();
+            final lastName = userData?['lastName'] ?? 'Unknown';
+            final firstName = userData?['firstName'] ?? 'Unknown';
+            final fullName = "$firstName $lastName";
+
+            return Text(
+             fullName,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            );
+          },)
+
+
             ],
           ),
           backgroundColor: Colors.blueGrey,

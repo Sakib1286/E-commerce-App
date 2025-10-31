@@ -155,7 +155,7 @@ class _RegisterpageState extends State<Registerpage> {
 
               fontsize: 18,
               textcolor: Colors.black,
-              bgcolor: Colors.green,
+              bgcolor: Colors.blueGrey,
               btnheight: 50,
               btnwidth: double.infinity,
 
